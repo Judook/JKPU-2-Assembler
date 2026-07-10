@@ -3,7 +3,7 @@ def inverseBinaryConvert(a, bits) :
     while a > 1 :
         ans += str(a % 2)
         a = int(a/2)
-    ans += "1"
+    ans += "1" if a != 0 else ""
     while len(ans) != bits :
         ans += "0"
     return ans
@@ -31,6 +31,7 @@ asToBin = {
     "STP" : "11001"
 }
 flags = {"NZ" : "00", "Z" : "10", "C" : "01", "NC" : "11"}
+lineNumber = 0
 # Open file
 try :
     programFile = open("program.asm", "r")
@@ -40,6 +41,7 @@ except :
 with open("program.mc", "w") as outFile :
     # Parsing
     for line in programFile :
+        lineNumber += 1
         try :
             # Stripping sLine
             sLine = line.strip()
@@ -99,3 +101,6 @@ with open("program.mc", "w") as outFile :
 
         #Adding newline
         outFile.write("\n")
+    while lineNumber < 1024 :
+        outFile.write("00000000000000000\n")
+        lineNumber += 1
