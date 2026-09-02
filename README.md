@@ -8,7 +8,7 @@ This is the assembler and supporting programs written for my minecraft CPU JKPU-
 
 There are two python scripts in the repo - `assembler.py` and `schematicMaker.py`. There is also a file called `program.asm`, where the program to be assembled is stored.
 
-### Usage
+**Usage steps :**
 
 1. Edit the `program.asm` according to the ISA for the computer and write your assembly code in it. Make sure to save the file.
 2. Run `assembler.py`.
